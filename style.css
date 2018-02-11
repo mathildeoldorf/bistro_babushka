@@ -1,0 +1,351 @@
+* {
+    box-sizing: border-box;
+}
+
+/****** FONT ******/
+
+/*
+@font-face {
+    font-family: 'molotregular';
+    src: url('font/molot-webfont.woff2') format('woff2'),
+    url('font/molot-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/***** GENERELLE HTML ELEMENTER *****/
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'molotregular', sans-serif;
+    padding: 0 20px 0 20px;
+}
+
+img {
+    width: 100%;
+}
+
+/***** HEADERE *****/
+
+h1 {
+    font-size: 3.5em;
+}
+
+/** h2 **/
+
+h2 {
+    font-size: 1.3vw;
+}
+
+#overskrift {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "molotregular", sans-serif;
+    font-size: 2em;
+}
+
+h3 {
+    text-transform: uppercase;
+    margin: 0.3em 0 0.3em 0;
+    font-weight: bolder;
+}
+
+.adresse-h3 {
+    font-family: "molotregular", sans-serif;
+    font-size: 1.35em;
+}
+
+/***** MENUER, FILTRERING OG SORTERING *****/
+
+#knapper {
+    text-align: center;
+}
+
+#knapper button::first-letter {
+    text-transform: capitalize;
+}
+
+nav ol {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav li {
+    text-transform: lowercase;
+    padding: 10px;
+    font-size: 2vw;
+}
+
+#sortering {
+    padding: 1vw;
+    text-align: center;
+}
+
+/**BURGERMENU**/
+
+.burgermenu {
+    display: none;
+}
+
+/***** FOOTER *****/
+
+#footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1vw;
+    justify-content: flex-end;
+    /*    grid-template-columns: repeat(4, 1fr);*/
+}
+
+#adresse {
+    flex-basis: 200px;
+    font-style: normal;
+    /*    grid-column: 1;*/
+}
+
+#tider {
+    flex-basis: 200px;
+    /*    grid-column: 4;*/
+}
+
+
+/****** MENUVISNING ******/
+
+.ret {
+    cursor: pointer;
+}
+
+.navn {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.kortbeskrivelse {
+    font-size: 1.2em;
+}
+
+.oprindelse {
+    font-size: 0.8em;
+}
+
+.liste {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1024px;
+    margin: 0 auto;
+    grid-gap: 1.5vw;
+}
+
+.billede {
+    height: 18vw;
+}
+
+
+/***** POPUP *****/
+
+.popup {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    visibility: hidden;
+}
+
+.popup-content {
+    width: 80vw;
+    height: 100%;
+    color: #fff;
+    position: absolute;
+    top: 2.5vw;
+    left: 10vw;
+
+}
+
+.popup-titel {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3vw;
+}
+
+summary {
+    font-weight: 100;
+    font-size: 0.8em;
+    padding: 1vw;
+}
+
+.popup-langbeskrivelse {
+    font-weight: 200;
+    line-height: 1.5;
+}
+
+.popup-billede {
+    width: 50vw;
+    padding: 1vw;
+}
+
+.popup-pris {
+    margin: 0;
+    padding: 0.5vw;
+}
+
+.single-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+
+
+@media screen and (max-width: 1100px) {
+
+    .liste {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2vw;
+    }
+
+    #overskrift {
+        font-size: 4.5vw;
+    }
+
+    .navn {
+        font-size: 1.8em;
+        height: 5.5vw;
+    }
+
+    .billede {
+        height: 30vw;
+    }
+
+    .popup-billede {
+        /*        padding: 1vw;*/
+    }
+
+    .single-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 5.7vw;
+    }
+
+    nav li {
+        padding: 6px;
+        font-size: 3vw;
+    }
+
+    .burgermenu {
+        display: block;
+        cursor: pointer;
+        background: #000;
+        border-radius: 10px;
+        margin: 30px;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+        width: 30px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 6px 0;
+        transition: 0.4s ease;
+    }
+
+    #knapper {
+        width: 120px;
+        max-height: 0px;
+        overflow: hidden;
+        transition: 0.6s ease;
+    }
+
+    #knapper.show {
+        max-height: 500px;
+    }
+
+    #knapper button {
+        width: 100px;
+        margin: 2px;
+    }
+
+
+    /* ROTERING */
+    .change .bar1 {
+        transform: rotate(-45deg) translate(-7px, 5px);
+    }
+    .change .bar3 {
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+
+    /* FADE */
+    .change .bar2 {
+        opacity: 0;
+    }
+
+
+
+    .liste {
+        grid-template-columns: 1fr;
+        /*        padding: 3vw;*/
+    }
+
+    .ret {
+        padding: 3vw 3vw 0 3vw;
+    }
+
+    #overskrift {
+        font-size: 4.5vw;
+    }
+
+    .navn {
+        font-size: 3.8vw;
+        height: 3.5vw;
+    }
+
+    .billede {
+        height: auto;
+    }
+
+    .popup-billede {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .popup-titel {
+        font-size: 5vw;
+    }
+
+    .single-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    #knapper button {
+        font-size: 1.5vw;
+        width: 15.5vw;
+    }
+
+}
+
+
+
+
+.markeret {
+    background-color: aquamarine;
+}
